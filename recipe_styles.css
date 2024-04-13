@@ -16,7 +16,8 @@ header {
 }
 
 h1 {
-    font-style: Verdana, sans-serif;
+    /* font-style: Verdana, sans-serif; */
+    font-family: "Lucida Handwriting", cursive;
     margin: 0;
     padding: 0 20px;
     color: #b10000;
@@ -40,11 +41,19 @@ nav li {
     display: inline-block;
     margin-right: 10px;
     font-family: "Helvetica Neue";
+    font-weight: bold;
 }
 
 nav a {
     text-decoration: none;
     color: black;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #ccc;
+    margin: 20px auto;
+    width: auto;
 }
 
 .section#home {
@@ -53,7 +62,7 @@ nav a {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 20px;
+    padding-top: 10px;
     height: 100vh;
 }
 
@@ -73,11 +82,12 @@ nav a {
     width: 30%;
     z-index: 2;
     position: absolute;
-    top: 40%;
+    top: 55%;
     left: 60%;
     transform: translateX(-50%);
     transition: background-color 0.3s ease;
 }
+
 
 .post-title-box:hover {
     background-color: rgba(255, 250, 250, 0.9);
@@ -92,6 +102,46 @@ nav a {
 
 .post-title-box h3 {
     font-weight: light;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Segoe Script", cursive;
+}
+
+.recipe-card {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.recipe-card h3,
+.recipe-card p {
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+.recipe-card a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
 }
 
 section#about p {

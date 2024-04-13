@@ -28,18 +28,96 @@
             </section>
             <hr>
 
+            <h2>Some of my favs currently...</h2>
+            <section id="recipes">
+                <div class="recipe-card">
+                    <img src="images/bread-pudding-2.jpg" alt="dessert">
+                    <h3>Bread Pudding</h3>
+                    <a href="#" class="view-recipe-link" data-recipe-id="1">View Ingredients</a>
+                </div>
+
+                <div class="recipe-card">
+                    <img src="images/mac-and-cheese.jpg" alt="side dish">
+                    <h3>Southern Mac & Cheese</h3>
+                    <a href="#" class="view-recipe-link" data-recipe-id="2">View Ingredients</a>
+                </div>
+
+                <div class="recipe-card">
+                    <img src="images/vanilla-cake-5.jpg" alt="dessert">
+                    <h3>Vanilla Cake</h3>
+                    <a href="#" class="view-recipe-link" data-recipe-id="3">View Ingredients</a>
+                </div>
+
+                <div class="recipe-card">
+                    <img src="images/beef-flautas.jpg" alt="entrees">
+                    <h3>Beef Flautas</h3>
+                    <a href="#" class="view-recipe-link" data-recipe-id="4">View Ingredients</a>
+                </div>
+
+            </section>
+
             <section id="about">
                 <p>Hi! I'm Angel. I am an amateur cook/baker. Have a look around and discover some of my favorite (and soon to be your favorite) recipes!</p>
             </section>
             <hr>
-
-            <section id="recipes">
-                
-            </section>
         </main>
     
 
         <footer>&copy; Copyright 2024</footer>
+
+        <script>
+            //when the 'view recipe' link is clicked, the card will become larger and show the ingredients and recipe
+            function showRecipe(recipeID){
+                const recipeDetails = document.getElementById(`.recipe-card[data-recipe-id="${recipeID}"]`);
+                const ingredients = document.createElement('ul');
+                const instructions = document.createElement('p');
+
+                recipeDetails.innerHTML = '';
+
+                ingredients.innerHTML = `
+                    <li>Ingredient 1</li>
+                    <li>Ingredient 2</li>
+                    <li>Ingredient 3</li>
+                `;
+
+                instructions.textContent = 'Recipe instructions: ';
+
+                recipeDetails.appendChild(ingredients);
+                recipeDetails.appendChild(instructions);
+
+                recipeDetails.style.display = 'block';
+            }
+
+            //hide recipe details
+            function hideRecipe(){
+                const ingredientsLists = document.querySelectorAll('.recipe-card ul');
+                const instructions = document.querySelectorAll('.recipe-card p');
+
+                ingredients.forEach(list => {
+                    list.remove();
+                });
+
+                instructions.forEach(instruction => {
+                    instruction.remove();
+                });
+            }
+
+            const viewRecipe = document.querySelectorAll('.view-recipe-link');
+            viewRecipe.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const recipeID = this.parentElement.getAttribute('data-recipe-id');
+                    showRecipe(recipeID);
+                });
+            });
+
+            document.addEventListener('click', function(event) {
+                const recipeDetails = document.getElementById('recipe-details');
+                if(!recipeDetails.contains(event.target)) {
+                    hideRecipe();
+                }
+            });
+        </script>
 
     </body>
 
